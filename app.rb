@@ -5,5 +5,5 @@ get '/' do
 end
 
 get 'post' do
-   erb :conplete
+   erb :complete
 end
