@@ -1,0 +1,10 @@
+CREATE TABLE chouchou.payments (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name VARCHAR(100),
+  ruby VARCHAR(100),
+  age VARCHAR(100),
+  gender VARCHAR(100),
+  payment VARCHAR(100),
+  content VARCHAR(100),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
