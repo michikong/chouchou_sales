@@ -4,6 +4,6 @@ get '/' do
    erb :contact
 end
 
-get 'post' do
+post '/' do
    erb :complete
 end

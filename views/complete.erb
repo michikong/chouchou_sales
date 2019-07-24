@@ -44,20 +44,24 @@
                     </tr>
                     <tr>
                         <th>ふりがな</th>
-                        <td><%= params['age'] %></td>
+                        <td><%= params['ruby'] %></td>
                     </tr>
                     <tr>
                         <th>年齢</th>
-                        <td><%= params['age'] %></td>
+                        <td><%= params['age'] + '歳' %></td>
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td><%= params['gender'] %></td>
+                        <% if name = "gender-men" %>
+                            <td><%= params['gender-men'] %></td>
+                        <% else %>
+                            <td><%= params['gender-woman'] %></td>
+                        <% end %>
                     </tr>
                     
                     <tr>
                         <th>金額</th>
-                        <td><%= params['payment'] %></td>
+                        <td><%= params['payment'] + '円' %></td>
                     </tr>
                     
                     <tr>
