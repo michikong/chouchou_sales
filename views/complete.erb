@@ -39,23 +39,29 @@
                 <h4>送信内容</h4>
                 <tbody>
                     <tr>
-                        <th style="width:30%;">会社名</th>
-                        <td><%= params['company'] %></td>
-                    </tr>
-                    <tr>
-                        <th>氏名</th>
+                        <th style="width:30%;">氏名</th>
                         <td><%= params['name'] %></td>
                     </tr>
                     <tr>
-                        <th>メール</th>
-                        <td><%= params['mail'] %></td>
+                        <th>ふりがな</th>
+                        <td><%= params['age'] %></td>
                     </tr>
                     <tr>
-                        <th>電話番号</th>
-                        <td><%= params['tel'] %></td>
+                        <th>年齢</th>
+                        <td><%= params['age'] %></td>
                     </tr>
                     <tr>
-                        <th>内容</th>
+                        <th>性別</th>
+                        <td><%= params['gender'] %></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>金額</th>
+                        <td><%= params['payment'] %></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>メモ</th>
                         <td><%= params['content'].gsub(/\r\n|\r|\n/, "<br>") %></td>
                     </tr>
                 </tbody>

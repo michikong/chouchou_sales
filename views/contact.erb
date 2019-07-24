@@ -39,16 +39,9 @@
                 </div>
                 <div class="col-sm-10">
                     <p>
-                        お店の売り上げ集計をする為の情報を入力してください。
+                        お店の売り上げを集計する為、情報を入力してください。
                     </p>
                     <form action="/" method="POST">
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">会社名：</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="company" required>
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">氏名：</label>
                             <div class="col-sm-10">
@@ -57,29 +50,41 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">メール：</label>
+                            <label class="col-sm-2 col-form-label">ふりがな：</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="mail" required>
+                                <input type="text" class="form-control" name="ruby" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">年齢：</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="age" required>
+                            </div>
+                        </div>
+                        
+                        <p>性別：
+                            <input id="radio-a" type="radio" name="gender-men" value="男" checked><label for="radio-a">男性</label>
+                            <input id="radio-b" type="radio" name="gender-woman" value="女"><label for="radio-b">女性</label>
+                        </p>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">金額：</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="payment" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">電話番号：</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="tel" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">内容：</label>
+                            <label class="col-sm-2 col-form-label">メモ：</label>
                             <div class="col-sm-10 col-form-label">
-                                <textarea class="form-control" name="content" required></textarea>
+                                <textarea class="form-control" name="content"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" class="btn btn-success btn-block">お問い合わせ内容を送信する</button>
+                                <button type="submit" class="btn btn-success btn-block">内容を送信する</button>
                             </div>
                         </div>
                     </form>
