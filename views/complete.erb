@@ -52,18 +52,12 @@
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <% if name = "gender-men" %>
-                            <td><%= params['gender-men'] %></td>
-                        <% else %>
-                            <td><%= params['gender-woman'] %></td>
-                        <% end %>
+                        <td><%= params['gender'] %></td>
                     </tr>
-                    
                     <tr>
                         <th>金額</th>
                         <td><%= params['payment'] + '円' %></td>
                     </tr>
-                    
                     <tr>
                         <th>メモ</th>
                         <td><%= params['content'].gsub(/\r\n|\r|\n/, "<br>") %></td>

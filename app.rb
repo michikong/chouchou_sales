@@ -15,8 +15,8 @@ post '/' do
    # mysqlに接続
    # host、username、password、データベース名を指定
    client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
-   form_typed = params['']
-   statement = client.prepare('INSERT INTO payments() VALUES()')
+   form_typed = params['name']
+   statement = client.prepare('INSERT INTO payments(name) VALUES(?)')
    statement.execute(form_typed)
    
    # レコードの追加
