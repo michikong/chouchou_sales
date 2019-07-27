@@ -15,10 +15,11 @@ post '/' do
    # mysqlに接続
    # host、username、password、データベース名を指定
    client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
-   form_typed = params['name']
-   statement = client.prepare('INSERT INTO payments(name) VALUES(?)')
-   statement.execute(form_typed)
    
+   parameter = params['name']
+   statement = client.prepare('INSERT INTO payments(name) VALUES(?)')
+   statement.execute(parameter)
+
    # レコードの追加
    @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
    erb :complete
