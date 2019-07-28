@@ -16,9 +16,10 @@ post '/' do
    # host、username、password、データベース名を指定
    client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
    
-   parameter = params['name']
-   statement = client.prepare('INSERT INTO payments(name) VALUES(?)')
-   statement.execute(parameter)
+   # parameter = params
+   statement = client.prepare('INSERT INTO payments(name, ruby, age, gender, payment, content) VALUES(?, ?, ?, ?, ?, ?)')
+   statement.execute(params[:name, :ruby, :age, :gender, :payment, :content])
+   # [:name], params[:ruby], params[:age], params[:gender], params[:payment], params[:content]
 
    # レコードの追加
    @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
