@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'mysql2'
+require 'pry'
+# binding.pry
 
 get '/' do
    # mysqlに接続
@@ -18,9 +20,8 @@ post '/' do
    
    # parameter = params
    statement = client.prepare('INSERT INTO payments(name, ruby, age, gender, payment, content) VALUES(?, ?, ?, ?, ?, ?)')
-   statement.execute(params[:name, :ruby, :age, :gender, :payment, :content])
-   # [:name], params[:ruby], params[:age], params[:gender], params[:payment], params[:content]
-
+   statement.execute(params['name'], params['ruby'], params['age'], params['gender'], params['payment'], params['content'])
+   
    # レコードの追加
    @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
    erb :complete
