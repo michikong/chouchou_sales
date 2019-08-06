@@ -3,6 +3,14 @@ require 'mysql2'
 require 'pry'
 # binding.pry
 
+set :database, {adapter: "sqlite3", database: "contacts.sqlite3"}
+enable :sessions
+
+class Contact < ActiveRecord::Base
+  validates_presence_of :name
+  validates_presence_of :email
+end
+
 get '/' do
    # mysqlに接続
    # host、username、password、データベース名を指定
