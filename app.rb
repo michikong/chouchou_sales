@@ -7,12 +7,16 @@ require 'bundler'
 
 Bundler.require
 
-set :database, {adapter: "sqlite3", database: "contacts.sqlite3"}
+set :database, {adapter: "sqlite3", database: "info.sqlite3"}
 enable :sessions
 
 class Contact < ActiveRecord::Base
   validates_presence_of :name
-  validates_presence_of :email
+  validates_presence_of :ruby
+  validates_presence_of :age
+  validates_presence_of :gender
+  validates_presence_of :payment
+  validates_presence_of :contact
 end
 
 get '/' do
