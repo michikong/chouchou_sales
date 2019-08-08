@@ -10,7 +10,7 @@ Bundler.require
 set :database, {adapter: "sqlite3", database: "info.sqlite3"}
 enable :sessions
 
-class Contact < ActiveRecord::Base
+class Info < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :ruby
   validates_presence_of :age
@@ -30,6 +30,25 @@ get '/' do
 end
    
 post '/' do
+   
+   name = params[:name]
+   ruby = params[:ruby]
+   age = params[:age]
+   gender = params[:gender]
+   payment = params[:payment]
+   contact = params[:contact]
+   
+   #空箱作成
+   info = Info.new({
+      name: name,
+      ruby: ruby,
+      age: age,
+      gender: gender,
+      payment: payment,
+      contact: contact}
+      )
+   #データ保存
+   info.save
    # mysqlに接続
    # host、username、password、データベース名を指定
    # client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
