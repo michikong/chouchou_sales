@@ -48,6 +48,7 @@ post '/' do
       contact: contact}
       )
    #データ保存
+   @contact = Contact.new({name: name, email: params[:email]})
    info.save
    # mysqlに接続
    # host、username、password、データベース名を指定
