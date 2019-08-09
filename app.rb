@@ -60,4 +60,6 @@ post '/' do
    # # レコードの追加
    # @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
    erb :complete
+   
+   
 end
