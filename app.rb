@@ -31,21 +31,21 @@ end
    
 post '/' do
    
-   name = params[:name]
-   ruby = params[:ruby]
-   age = params[:age]
-   gender = params[:gender]
-   payment = params[:payment]
-   contact = params[:contact]
+   # name = params[:name]
+   # ruby = params[:ruby]
+   # age = params[:age]
+   # gender = params[:gender]
+   # payment = params[:payment]
+   # contact = params[:contact]
    
    #空箱作成
    info = Info.new({
-      name: name,
-      ruby: ruby,
-      age: age,
-      gender: gender,
-      payment: payment,
-      contact: contact}
+      name: params[:name],
+      ruby: params[:ruby],
+      age: params[:age],
+      gender: params[:gender],
+      payment: params[:payment],
+      contact: params[:contact]}
       )
    #データ保存
    info.save
