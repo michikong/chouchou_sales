@@ -1,7 +1,7 @@
 # require 'sinatra'
 # require 'mysql2'
 # require 'pry'
-# binding.pry
+
 require 'rubygems'
 require 'bundler'
 
@@ -44,10 +44,11 @@ post '/' do
       ruby: params[:ruby],
       age: params[:age],
       gender: params[:gender],
-      payment: params[:paynent],
+      payment: params[:payment],
       contact: params[:contact]}
       )
    #データ保存
+   # binding.pry
    info.save
    # mysqlに接続
    # host、username、password、データベース名を指定
