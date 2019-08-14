@@ -44,7 +44,7 @@ post '/' do
       ruby: params[:ruby],
       age: params[:age],
       gender: params[:gender],
-      payment: params[:paynent],
+      payment: params[:payment],
       contact: params[:contact]}
       )
    #データ保存
