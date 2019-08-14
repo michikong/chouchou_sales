@@ -1,6 +1,3 @@
-# require 'sinatra'
-# require 'mysql2'
-# require 'pry'
 # binding.pry
 require 'rubygems'
 require 'bundler'
