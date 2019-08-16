@@ -1,7 +1,7 @@
 # require 'sinatra'
 # require 'mysql2'
 # require 'pry'
-# binding.pry
+
 require 'rubygems'
 require 'bundler'
 
@@ -49,6 +49,8 @@ post '/' do
       )
    #データ保存
    info.save
+   binding.pry
+
    # mysqlに接続
    # host、username、password、データベース名を指定
    # client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
