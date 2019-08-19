@@ -17,7 +17,7 @@ class Info < ActiveRecord::Base
 end
 
 get '/' do
-   # @info = Info.new
+   @info = Info.new
    # mysqlに接続
    # host、username、password、データベース名を指定
    # client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
