@@ -24,7 +24,7 @@ get '/' do
    
    # レコードの追加
    # @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
-   erb :home
+   erb :index
 end
    
 get '/contact' do
