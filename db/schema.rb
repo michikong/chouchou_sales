@@ -10,22 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_002158) do
-
-  create_table "info", force: :cascade do |t|
-    t.string "name"
-    t.string "ruby"
-    t.integer "phone_number"
-    t.string "email"
-    t.integer "age"
-    t.string "gender"
-    t.integer "payment"
-    t.string "contact"
-  end
+ActiveRecord::Schema.define(version: 2019_08_20_072518) do
 
   create_table "infos", force: :cascade do |t|
     t.string "name"
     t.string "ruby"
+    t.integer "phone_number"
+    t.string "email"
     t.integer "age"
     t.string "gender"
     t.integer "payment"
