@@ -29,6 +29,7 @@ get '/' do
    erb :index
 end
    
+   
 get '/contact' do
    @info = Info.new
    erb :contact
