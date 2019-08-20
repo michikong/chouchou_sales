@@ -10,6 +10,8 @@ enable :sessions
 class Info < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :ruby
+  validates_presence_of :phone_number
+  validates_presence_of :email
   validates_presence_of :age
   validates_presence_of :gender
   validates_presence_of :payment
@@ -31,6 +33,15 @@ get '/contact' do
    @info = Info.new
    erb :contact
 end
+
+get '/company' do
+   erb :company
+end
+
+get '/address' do
+   erb :address
+end
+
 post '/' do
    
    # name = params[:name]
@@ -44,6 +55,8 @@ post '/' do
    @info = Info.new({
       name: params[:name],
       ruby: params[:ruby],
+      phone_number: params[:phone_number],
+      email: params[:email],
       age: params[:age],
       gender: params[:gender],
       payment: params[:payment],
