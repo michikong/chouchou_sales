@@ -43,7 +43,7 @@ get '/address' do
    erb :address
 end
 
-post '/' do
+post '/info' do
    
    # name = params[:name]
    # ruby = params[:ruby]
@@ -85,4 +85,9 @@ post '/' do
    erb :complete
    
    
+end
+
+get '/inquiry' do
+   puts "test"
+   erb :inquiry
 end
