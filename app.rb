@@ -18,6 +18,13 @@ class Info < ActiveRecord::Base
   validates_presence_of :contact
 end
 
+class Inquiry < ActiveRecord::Base
+  validates_presence_of :name
+  validates_presence_of :ruby
+  validates_presence_of :email
+  validates_presence_of :contact
+end
+
 get '/' do
    # @info = Info.new
    # mysqlに接続
@@ -89,12 +96,12 @@ end
 
 
 get '/inquiry' do
-   @info = Info.new
+   @inquiry = Inquiry.new
    erb :inquiry
 end
 
 post '/inquiry' do
-   @info = Info.new({
+   @inquiry = Inquiry.new({
       name: params[:name],
       ruby: params[:ruby],
       email: params[:email],
