@@ -23,13 +23,13 @@ get '/' do
    # mysqlに接続
    # host、username、password、データベース名を指定
    # client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
-   
+
    # レコードの追加
    # @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
    erb :index
 end
-   
-   
+
+
 get '/contact' do
    @info = Info.new
    erb :contact
@@ -44,14 +44,14 @@ get '/address' do
 end
 
 post '/info' do
-   
+
    # name = params[:name]
    # ruby = params[:ruby]
    # age = params[:age]
    # gender = params[:gender]
    # payment = params[:payment]
    # contact = params[:contact]
-   
+
    #空箱作成
    @info = Info.new({
       name: params[:name],
@@ -75,19 +75,35 @@ post '/info' do
    # mysqlに接続
    # host、username、password、データベース名を指定
    # client = Mysql2::Client.new(host: 'localhost', username: 'root', database: 'chouchou', encoding: 'utf8')
-   
+
    # parameter = params
    # statement = client.prepare('INSERT INTO payments(name, ruby, age, gender, payment, content) VALUES(?, ?, ?, ?, ?, ?)')
    # statement.execute(params['name'], params['ruby'], params['age'], params['gender'], params['payment'], params['content'])
-   
+
    # # レコードの追加
    # @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
    erb :complete
-   
-   
+
+
 end
 
+
 get '/inquiry' do
-   puts "test"
+   @info = Info.new
    erb :inquiry
+end
+
+post '/inquiry' do
+   @info = Info.new({
+      name: params[:name],
+      ruby: params[:ruby],
+      email: params[:email],
+      contact: params[:contact]}
+      )
+      
+   @info.save
+   
+   # redirect '/'
+   erb :inquiry_complete
+   
 end
