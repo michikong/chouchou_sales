@@ -59,7 +59,6 @@ post '/info' do
    # payment = params[:payment]
    # contact = params[:contact]
 
-   #空箱作成
    @info = Info.new({
       name: params[:name],
       ruby: params[:ruby],
@@ -108,7 +107,7 @@ post '/inquiry' do
       contact: params[:contact]}
       )
       
-   @info.save
+   @inquiry.save
    
    # redirect '/'
    erb :inquiry_complete
