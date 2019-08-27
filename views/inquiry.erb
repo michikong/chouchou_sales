@@ -43,29 +43,65 @@
                     <form action="/inquiry" method="POST">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">氏名：</label>
-                            <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="name" required value="<%=@inquiry.name%>">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" placeholder="日本　太郎" required value="<%=@inquiry.name%>">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">フリガナ：</label>
-                            <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="ruby" required value="<%=@inquiry.ruby%>">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="ruby" placeholder="ニホン　タロウ" required value="<%=@inquiry.ruby%>">
                             </div>
                         </div>
                         
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">メールアドレス：</label>
-                            <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="email" required value="<%=@inquiry.email%>">
+                            <label class="col-sm-2 col-form-label">連絡が可能なメールアドレスを入力してください。</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" autocomplete="on" placeholder="sample@chouchou.ne.jp" onblur="chkemail(this)"/><div class="error"></div></                                <div id="email_error_msg"></div>
+                                <script>
+                                function chkemail(obj) {
+                                    var msg = "";
+                                    var str = obj.value;
+                                    var error_msg_node = document.getElementById("email_error_msg");
+                                    //全角英数字を半角英数字に変換
+                                    str = zentohan(str);
+                                    //.や@が含まれているかをチェック
+                                    if( !str.match( /.+@.+\..+/ ) ) {
+                                        msg = "入力されたメールアドレスに間違いはありませんか？";
+                                    }
+                                    if( str.match( /,/ ) ) {
+                                        msg = "カンマ(,)が含められていますがドット(.)ではありませんか？";
+                                    }
+                                    if(msg !== ""){
+                                        error_msg_node.innerHTML = msg;
+                                    }else{
+                                        error_msg_node.innerHTML = "";
+                                    }
+                                }
+                                function zentohan(str){
+                                	str = str.replace(/[\uff21-\uff3a\uff41-\uff5a\uff10-\uff19]/g, function(s){
+                                		return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+                                	});
+                                	//spaces remove
+                                	str = str.replace(/\u0020|\u3000/g,'');
+                                	return str;
+                                };
+                                </script>
                             </div>
                         </div>
+
+                        <input name="confirm_email1" type="text" placeholder="@以前を入力" /><div class="error"></div></td><td>@</td><td><input name="confirm_email2" class="typeahead" type="text" placeholder="@以降を入力" /><div class="error"></div></td></tr>
+                        <div class="error" id="match_error"></div>
+                        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                        <script src="typeahead.js"></script>
+                        <script src="examples.js"></script>
+                        </body>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">お問い合わせ内容：</label>
                             <div class="col-sm-10 col-form-label">
-                                <textarea class="form-control" name="contact" value="<%=@inquiry.contact%>"></textarea>
+                                <textarea class="form-control" name="contact" placeholder="お問い合わせ内容を入力してください。" value="<%=@inquiry.contact%>"></textarea>
                             </div>
                         </div>
                         

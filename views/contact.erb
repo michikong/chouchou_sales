@@ -46,54 +46,79 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">氏名：</label>
                             <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="name" required value="<%=@info.name%>">
+                                <input type="text" class="form-control" name="name" placeholder="日本　太郎" required value="<%=@info.name%>">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">フリガナ：</label>
                             <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="ruby" required value="<%=@info.ruby%>">
+                                <input type="text" class="form-control" name="ruby" placeholder="ニホン　タロウ" required value="<%=@info.ruby%>">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">電話番号：</label>
-                            <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="phone_number" required value="<%=@info.phone_number%>">
+                            <div class="col-sm-10">必須(ハイフンなし)
+                                <input type="text" class="form-control" name="phone_number" placeholder="090-XXXX-XXXX" required value="<%=@info.phone_number%>">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">メールアドレス：</label>
                             <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="email" required value="<%=@info.email%>">
+                                <input type="email" class="form-control" name="email" placeholder="sample@chouchou.ne.jp" required value="<%=@info.email%>">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">年齢：</label>
                             <div class="col-sm-10">必須
-                                <input type="text" class="form-control" name="age" required value="<%=@info.age%>">
+                                <!--<input type="text" class="form-control" name="age" required value="<%=@info.age%>">-->
+                                <select name="age" value="<%=@info.age%>">
+                                    <option value="">選択してください</option>
+                                    <option value="20歳未満">20歳未満</option>
+                                    <option value="20-29歳">20-29歳</option>
+                                    <option value="30-39歳">30-39歳</option>
+                                    <option value="40-49歳">40-49歳</option>
+                                    <option value="50-59歳">50-59歳</option>
+                                    <option value="60-69歳">60-69歳</option>
+                                    <option value="70-79歳">70-79歳</option>
+                                    <option value="80歳以上">80歳以上</option>
+                                </select>
                             </div>
                         </div>
                         
-                        <p>性別：
-                            <input id="radio-a" type="radio" name="gender" value="男性" checked><label for="radio-a">男性</label>
-                            <input id="radio-b" type="radio" name="gender" value="女性"><label for="radio-b">女性</label>
-                        </p>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">年齢：</label>
+                            <div class="col-sm-10">
+                                <input id="radio-a" type="radio" name="gender" value="男性" checked><label for="radio-a">男性</label>
+                                <input id="radio-b" type="radio" name="gender" value="女性"><label for="radio-b">女性</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">血液型：</label>
+                            <div class="col-sm-10">
+                                <select name="blood" value="<%=@info.blood%>">
+                                <option value="A">A型</option>
+                                <option value="B">B型</option>
+                                <option value="O">O型</option>
+                                <option value="AB">AB型</option>
+                                </select></p>
+                            </div>
+                        </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">金額：</label>
-                            <div class="col-sm-10">必須
-                                <input type="number" class="form-control" name="payment" required value="<%=@info.payment%>">
+                            <div class="col-sm-10">必須(半角数字)
+                                <input type="number" class="form-control" name="payment" placeholder="10000" required value="<%=@info.payment%>">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">メモ：</label>
                             <div class="col-sm-10 col-form-label">
-                                <textarea class="form-control" name="contact" value="<%=@info.contact%>"></textarea>
+                                <textarea class="form-control" name="contact" placeholder="内容を入力してください。" value="<%=@info.contact%>"></textarea>
                             </div>
                         </div>
                         

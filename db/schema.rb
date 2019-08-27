@@ -18,15 +18,20 @@ ActiveRecord::Schema.define(version: 2019_08_24_130209) do
     t.integer "phone_number"
     t.string "email"
     t.integer "age"
+    t.string "blood"
     t.string "gender"
     t.integer "payment"
     t.string "contact"
+    t.string "confirm_email1"
+    t.string "confirm_email2"
   end
 
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
     t.string "ruby"
     t.string "email"
+    t.string "confirm_email1"
+    t.string "confirm_email2"
     t.string "contact"
   end
 

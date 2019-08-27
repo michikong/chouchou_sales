@@ -1,4 +1,3 @@
-# binding.pry
 require 'rubygems'
 require 'bundler'
 
@@ -23,6 +22,8 @@ class Inquiry < ActiveRecord::Base
   validates_presence_of :ruby
   validates_presence_of :email
   validates_presence_of :contact
+  validates_presence_of :confirm_email1
+  validates_presence_of :confirm_email2
 end
 
 get '/' do
@@ -104,11 +105,14 @@ post '/inquiry' do
       name: params[:name],
       ruby: params[:ruby],
       email: params[:email],
-      contact: params[:contact]}
-      )
+      contact: params[:contact],
+      confirm_email1: params[:confirm_email1],
+      confirm_email2: params[:confirm_email2]
+   })
       
    @inquiry.save
-   
+   binding.pry
+
    # redirect '/'
    erb :inquiry_complete
    
