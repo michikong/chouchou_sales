@@ -132,3 +132,7 @@ post '/inquiry' do
 
    # redirect '/'
 end
+
+get '/blog' do
+   erb :blog
+end
