@@ -94,26 +94,41 @@ post '/info' do
 
 end
 
-
 get '/inquiry' do
    @inquiry = Inquiry.new
+   @message = session.delete :message
    erb :inquiry
 end
 
+get '/inquiry_complete' do
+   @inquiry = Inquiry.new
+   @message = session.delete :message
+   erb :inquiry_complete
+end
+
 post '/inquiry' do
+   
+   name = params[:name]
+   
    @inquiry = Inquiry.new({
-      name: params[:name],
+      name: name,
       ruby: params[:ruby],
       email: params[:email],
       contact: params[:contact],
       confirm_email1: params[:confirm_email1],
       confirm_email2: params[:confirm_email2]
    })
-      
-   @inquiry.save
-   binding.pry
+   
+   if params[:confirm_email1] + '@' + params[:confirm_email2] == params[:email]
+      @inquiry.save
+      session[:message] = "#{name}さん"
+      redirect 'inquiry_complete'
+   else
+      session[:message] = 'エラーが発生しました。再度入力ください。'
+      # erb :inquiry
+      redirect '/inquiry'
+   end
+   # binding.pry
 
    # redirect '/'
-   erb :inquiry_complete
-   
 end

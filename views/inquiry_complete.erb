@@ -35,6 +35,9 @@
         <div class="container">
             <!--<p>動作確認用: <%= params %></p>-->
             <h1 class="mt-4 pb-4 border-bottom">入力完了</h1>
+            <% if @message %>
+                <div class="message"><%= @message %></div>
+            <% end %>
             <p>ありがとうございます。正常に入力されました。</p>
             <p>ご返答今しばらくお待ちください。</p>
             <table class="table">
