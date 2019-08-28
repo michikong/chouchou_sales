@@ -7,7 +7,9 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/jsx;harmony=true" src="test.js"></script>
+        
         <title>PUB Chou Chou</title>
     </head>
     <body>
@@ -18,7 +20,7 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            
+                
                 <!-- メニュー項目 -->
               <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav">
@@ -32,10 +34,22 @@
             </nav>
         </header>
         <div class="container">
-            <h1 class="mt-4 pb-4 border-bottom">PUB Chou Chou</h1>
-            <video src="video/IMG.MP4"></video>
+            
             <!--<img src="img/IMG_3826.jpg" alt="chouchou3人組" align="middle">-->
         </div>
+        
+        <div class="wrap-video">
+          
+          <div class="text">
+            <h1 class="mt-4 pb-4 border-bottom">PUB Chou Chou</h1>
+            <p>full screen video !</p>
+            <p class="headline">背景に動画を表示してみた</p>
+          </div>
+          
+          <video src="video/sample-video.mp4" loop autoplay muted></video>
+        
+        </div>
+        
         <footer class="text-center pt-3 pb-3 border-top">
             &copy; 2019 SAMPLE Inc.
         </footer>
