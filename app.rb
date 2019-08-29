@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler'
-
+# binding.pry
 Bundler.require
 
 set :database, {adapter: "sqlite3", database: "info.sqlite3"}
@@ -38,9 +38,9 @@ get '/' do
 end
 
 
-get '/contact' do
+get '/payment' do
    @info = Info.new
-   erb :contact
+   erb :payment
 end
 
 get '/company' do
@@ -51,7 +51,7 @@ get '/address' do
    erb :address
 end
 
-post '/info' do
+post '/payment' do
 
    # name = params[:name]
    # ruby = params[:ruby]
@@ -74,10 +74,10 @@ post '/info' do
    # binding.pry
    if @info.save
       #true
-      erb :complete
+      erb :payment_complete
    else
       #folse
-      erb :contact
+      erb :payment
    end
    # mysqlに接続
    # host、username、password、データベース名を指定
@@ -89,24 +89,22 @@ post '/info' do
 
    # # レコードの追加
    # @records = client.query("SELECT * FROM payments ORDER BY created_at DESC")
-   erb :complete
-
-
+   # erb :complete
 end
 
-get '/inquiry' do
+get '/contact' do
    @inquiry = Inquiry.new
    @message = session.delete :message
-   erb :inquiry
+   erb :contact
 end
 
-get '/inquiry_complete' do
+get '/contact_complete' do
    @inquiry = Inquiry.new
    @message = session.delete :message
-   erb :inquiry_complete
+   erb :contact_complete
 end
 
-post '/inquiry' do
+post '/contact' do
    
    name = params[:name]
    
@@ -121,18 +119,24 @@ post '/inquiry' do
    
    if params[:confirm_email1] + '@' + params[:confirm_email2] == params[:email]
       @inquiry.save
-      session[:message] = "#{name}さん"
-      redirect 'inquiry_complete'
+      erb :contact_complete
+      # session[:message] = "#{name}さん"
+      # redirect 'contact_complete'
    else
-      session[:message] = 'エラーが発生しました。再度入力ください。'
-      # erb :inquiry
-      redirect '/inquiry'
+      # erb :contact
+      session[:message] = 'エラーが発生しました。内容を再度ご確認ください。'
+      redirect '/contact'
    end
-   # binding.pry
-
-   # redirect '/'
 end
 
 get '/blog' do
    erb :blog
+end
+
+get '/payment_aggregate_results' do
+   erb :payment_aggregate_results
+end
+
+get '/contact_all' do
+   erb :contact_all
 end

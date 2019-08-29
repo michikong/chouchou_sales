@@ -26,8 +26,8 @@
                     <li class="nav-item"><a href="/company" class="nav-link">Company</a></li>
                     <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="/address" class="nav-link">Access</a></li>
-                    <li class="nav-item"><a href="/contact" class="nav-link">Payment</a></li>
-                    <li class="nav-item"><a href="/inquiry" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="/payment" class="nav-link">Payment</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                 </ul>
               </div>
             </nav>
@@ -35,9 +35,6 @@
         <div class="container">
             <!--<p>動作確認用: <%= params %></p>-->
             <h1 class="mt-4 pb-4 border-bottom">入力完了</h1>
-            <% if @message %>
-                <div class="message"><%= @message %></div>
-            <% end %>
             <p>ありがとうございます。正常に入力されました。</p>
             <p>ご返答今しばらくお待ちください。</p>
             <table class="table">
@@ -51,21 +48,37 @@
                         <th>フリガナ</th>
                         <td><%= ERB::Util.html_escape(params['ruby']) %></td>
                     </tr>
-                    
+                    <tr>
+                        <th>電話番号</th>
+                        <td><%= ERB::Util.html_escape(params['phone_number'])%></td>
+                    </tr>
                     <tr>
                         <th>メールアドレス</th>
                         <td><%= ERB::Util.html_escape(params['email']) %></td>
                     </tr>
                     
                     <tr>
-                        <th>お問い合わせ内容</th>
+                        <th>年齢</th>
+                        <td><%= ERB::Util.html_escape(params['age']) + '歳' %></td>
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td><%= ERB::Util.html_escape(params['gender']) %></td>
+                    </tr>
+                    <tr>
+                        <th>金額</th>
+                        <td><%= ERB::Util.html_escape(params['payment']) + '円' %></td>
+                    </tr>
+                    <tr>
+                        <th>メモ</th>
                         <td><%= ERB::Util.html_escape(params['contact']).gsub(/\r\n|\r|\n/, "<br>") %></td>
                     </tr>
                 </tbody>
             </table>
             </table>
             <div class="text-center mb-4">
-                <a href="/inquiry" class="btn btn btn-success">入力画面に戻る</a>
+                <a href="/payment" class="btn btn btn-success">入力画面に戻る</a>
+                <a href="/payment_aggregate_results" class="btn btn btn-success">集計結果</a>
             </div>
         </div>
         <footer class="text-center pt-3 border-top">
