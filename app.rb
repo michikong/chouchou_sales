@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler'
-# binding.pry
 Bundler.require
 
 set :database, {adapter: "sqlite3", database: "info.sqlite3"}
@@ -17,7 +16,7 @@ class Info < ActiveRecord::Base
   validates_presence_of :contact
 end
 
-class Inquiry < ActiveRecord::Base
+class Contact < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :ruby
   validates_presence_of :email
@@ -93,13 +92,13 @@ post '/payment' do
 end
 
 get '/contact' do
-   @inquiry = Inquiry.new
+   @contact = Contact.new
    @message = session.delete :message
    erb :contact
 end
 
-get '/contact_complete' do
-   @inquiry = Inquiry.new
+post '/contact_complete' do
+   @contact = Contact.new
    @message = session.delete :message
    erb :contact_complete
 end
@@ -108,7 +107,7 @@ post '/contact' do
    
    name = params[:name]
    
-   @inquiry = Inquiry.new({
+   @contact = Contact.new({
       name: name,
       ruby: params[:ruby],
       email: params[:email],
@@ -118,7 +117,7 @@ post '/contact' do
    })
    
    if params[:confirm_email1] + '@' + params[:confirm_email2] == params[:email]
-      @inquiry.save
+      @contact.save
       erb :contact_complete
       # session[:message] = "#{name}さん"
       # redirect 'contact_complete'
@@ -135,8 +134,11 @@ end
 
 get '/payment_aggregate_results' do
    erb :payment_aggregate_results
+   @info = Info.new
 end
 
 get '/contact_all' do
+   # @contact = Contact.new
+   # binding.pry
    erb :contact_all
 end

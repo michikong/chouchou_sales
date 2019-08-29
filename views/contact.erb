@@ -45,18 +45,18 @@
                     <p>
                         何かご質問などございましたら、下記入力フォームからお問い合わせください。
                     </p>
-                    <form action="/contact" method="POST">
+                    <form action="/contact_complete" method="POST">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">氏名：</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" autocomplete="on" placeholder="日本　太郎" required value="<%=@inquiry.name%>">
+                                <input type="text" class="form-control" name="name" autocomplete="on" placeholder="日本　太郎" required value="<%=@contact.name%>">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">フリガナ：</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="ruby" autocomplete="on" placeholder="ニホン　タロウ" required value="<%=@inquiry.ruby%>">
+                                <input type="text" class="form-control" name="ruby" autocomplete="on" placeholder="ニホン　タロウ" required value="<%=@contact.ruby%>">
                             </div>
                         </div>
                         
@@ -70,14 +70,14 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">確認のため再度同じメールアドレスの入力をお願いします。：</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="confirm_email1" autocomplete="on" placeholder="@以前を入力" required value="<%=@inquiry.confirm_email1%>"><div class="error"></div>@<input type="text" class="form-control" name="confirm_email2" placeholder="@以降を入力" required value="<%=@inquiry.confirm_email2%>">
+                                <input type="text" class="form-control" name="confirm_email1" autocomplete="on" placeholder="@以前を入力" required value="<%=@contact.confirm_email1%>"><div class="error"></div>@<input type="text" class="form-control" name="confirm_email2" placeholder="@以降を入力" required value="<%=@contact.confirm_email2%>">
                             </div>
                         </div>
     
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">お問い合わせ内容：</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="contact" autocomplete="on" placeholder="お問い合わせ内容を入力してください。" value="<%=@inquiry.contact%>"></textarea>
+                                <textarea class="form-control" name="contact" autocomplete="on" placeholder="お問い合わせ内容を入力してください。" value="<%=@contact.contact%>"></textarea>
                             </div>
                         </div>
                         
