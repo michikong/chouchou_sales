@@ -103,6 +103,7 @@ post '/contact_complete' do
    erb :contact_complete
 end
 
+
 post '/contact' do
    
    name = params[:name]
@@ -133,12 +134,12 @@ get '/blog' do
 end
 
 get '/payment_aggregate_results' do
-   erb :payment_aggregate_results
    @info = Info.new
+   erb :payment_aggregate_results
 end
 
 get '/contact_all' do
-   # @contact = Contact.new
+   @contact = Contact.new
    # binding.pry
    erb :contact_all
 end
