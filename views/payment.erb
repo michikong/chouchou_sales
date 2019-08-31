@@ -34,6 +34,13 @@
         </header>
         <div class="container">
             <h1 class="mt-4 pb-4 border-bottom">売り上げ集計</h1>
+            
+            <h2>
+                <% if @message %>
+                    <div class="message"><%= @message %></div>
+                <% end %>
+            </h2>
+            
             <div class="mt-4 row">
                 <div class="col-sm-2">
                     <strong>売り上げ計算：</strong>
@@ -59,8 +66,8 @@
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">電話番号：</label>
-                            <div class="col-sm-10">必須(ハイフンなし)
-                                <input type="text" class="form-control" name="phone_number" placeholder="090-XXXX-XXXX" required value="<%=@info.phone_number%>">
+                            <div class="col-sm-10">必須(半角ハイフンなし)
+                                <input type="number" class="form-control" name="phone_number" placeholder="09012345678" required value="<%=@info.phone_number%>">
                             </div>
                         </div>
                         
@@ -73,9 +80,9 @@
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">年齢：</label>
-                            <div class="col-sm-10">必須
+                            <div class="col-sm-10">
                                 <!--<input type="text" class="form-control" name="age" required value="<%=@info.age%>">-->
-                                <select name="age" value="<%=@info.age%>">
+                                <select name="age" required value="<%=@info.age%>">
                                     <option value="">選択してください</option>
                                     <option value="20歳未満">20歳未満</option>
                                     <option value="20-29歳">20-29歳</option>
@@ -90,7 +97,7 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">年齢：</label>
+                            <label class="col-sm-2 col-form-label">性別：</label>
                             <div class="col-sm-10">
                                 <input id="radio-a" type="radio" name="gender" value="男性" checked><label for="radio-a">男性</label>
                                 <input id="radio-b" type="radio" name="gender" value="女性"><label for="radio-b">女性</label>
@@ -99,7 +106,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">血液型：</label>
                             <div class="col-sm-10">
-                                <select name="blood" value="<%=@info.blood%>">
+                                <select name="blood" required value="<%=@info.blood%>">
                                 <option value="">選択してください</option>
                                 <option value="A">A型</option>
                                 <option value="B">B型</option>
@@ -111,7 +118,7 @@
                         
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">金額：</label>
-                            <div class="col-sm-10">必須(半角数字)
+                            <div class="col-sm-10">(半角数字)
                                 <input type="number" class="form-control" name="payment" placeholder="10000" required value="<%=@info.payment%>">
                             </div>
                         </div>
