@@ -118,8 +118,18 @@ post '/contact' do
 end
 
 get '/contact_all' do
+   
    @contact = Contact.new
+   # @contact = Contact.new({
+   #    name: params[:name],
+   #    ruby: params[:ruby],
+   #    email: params[:email],
+   #    contact: params[:contact],
+   #    confirm_email1: params[:confirm_email1],
+   #    confirm_email2: params[:confirm_email2]
+   # })
    # binding.pry
+   
    erb :contact_all
 end
 
