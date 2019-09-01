@@ -52,6 +52,7 @@ post '/payment' do
       email: params[:email],
       age: params[:age],
       gender: params[:gender],
+      blood: params[:blood],
       payment: params[:payment],
       contact: params[:contact]}
       )
@@ -78,7 +79,7 @@ post '/payment' do
 end
 
 get '/payment_aggregate_results' do
-   @info = Info.new
+   @infos = Info.all
    erb :payment_aggregate_results
 end
 
@@ -105,8 +106,8 @@ post '/contact' do
       confirm_email2: params[:confirm_email2]
    })
    
-   # if params[:confirm_email1] + '@' + params[:confirm_email2] == params[:email]
-   if @contact.save
+   if params[:confirm_email1] + '@' + params[:confirm_email2] == params[:email]
+      @contact.save
       erb :contact_complete
       # session[:message] = "#{name}さん"
       # redirect 'contact_complete'
@@ -118,18 +119,7 @@ post '/contact' do
 end
 
 get '/contact_all' do
-   
-   @contact = Contact.new
-   # @contact = Contact.new({
-   #    name: params[:name],
-   #    ruby: params[:ruby],
-   #    email: params[:email],
-   #    contact: params[:contact],
-   #    confirm_email1: params[:confirm_email1],
-   #    confirm_email2: params[:confirm_email2]
-   # })
-   # binding.pry
-   
+    @contacts = Contact.all
    erb :contact_all
 end
 
