@@ -143,4 +143,9 @@ end
 
 
 
+get '/all_list' do
+   @infos = Info.all
+   @contacts = Contact.all
+   erb :all_list
+end
 

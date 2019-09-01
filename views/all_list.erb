@@ -7,7 +7,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css" />
-        <title>お問い合わせ内容一覧</title>
+        <title>集計結果</title>
     </head>
     <body>
         <header>
@@ -32,12 +32,46 @@
               </div>
             </nav>
         </header>
+        <!--<p>動作確認用: <%= params %></p>-->
+        <h1 class="mt-4 pb-4 border-bottom">payment集計結果</h1>
         
-        <h1 class="mt-4 pb-4 border-bottom">お問い合わせ内容一覧</h1>
+          <div>
+             <table border="1">
+                <thead>
+                   <tr>
+                      <th>ID</th>
+                      <th>名前</th>
+                      <th>フリガナ</th>
+                      <th>電話番号</th>
+                      <th>メールアドレス</th>
+                      <th>年齢</th>
+                      <th>性別</th>
+                      <th>血液型</th>
+                      <th>金額</th>
+                      <th>内容</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <% @infos.each do |contact| %>
+                      <tr>
+                         <td><%= contact.id %></td>
+                         <td><%= contact.name %></td>
+                         <td><%= contact.ruby %></td>
+                         <td><%= contact.phone_number %></td>
+                         <td><%= contact.email %></td>
+                         <td><%= contact.age %></td>
+                         <td><%= contact.gender %></td>
+                         <td><%= contact.blood %></td>
+                         <td><%= contact.payment %></td>
+                         <td><%= contact.contact %></td>
+                      </tr>
+                   <% end %>
+                </tbody>
+             </table>
+          </div>
         
-        
-        <p>動作確認用: <%= @contacts %></p>
-            
+         <h1 class="mt-4 pb-4 border-bottom">contact集計結果</h1>
+         
           <div>
              <table border="1">
                 <thead>
@@ -46,8 +80,6 @@
                       <th>名前</th>
                       <th>フリガナ</th>
                       <th>email</th>
-                      <!--<th>＠前</th>-->
-                      <!--<th>＠後</th>-->
                    </tr>
                 </thead>
                 <tbody>
@@ -57,16 +89,13 @@
                          <td><%= contact.ruby %></td>
                          <td><%= contact.name %></td>
                          <td><%= contact.email %></td>
-                         <!--<td><%= contact.confirm_email1 %></td>-->
-                         <!--<td><%= contact.confirm_email2 %></td>-->
                       </tr>
                    <% end %>
                 </tbody>
              </table>
           </div>
-
-        <a href="/contact" class="btn btn btn-success">入力画面に戻る</a>
-        <button type="button" class="btn btn btn-success" onclick="history.back()">戻る</button>
+        <!--<a href="/payment" class="btn btn btn-success">入力画面に戻る</a>-->
+        <!--<button type="button" class="btn btn btn-success" onclick="history.back()">戻る</button>-->
         <footer class="text-center pt-3 pb-3 border-top">
             &copy; 2019 SAMPLE Inc.
         </footer>
