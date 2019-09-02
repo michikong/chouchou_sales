@@ -146,6 +146,14 @@ end
 get '/all_list' do
    @infos = Info.all
    @contacts = Contact.all
+   
+   # all_listにて削除ボタンを作成したが、勝手に削除になってしまい、うまくいかない
+   # info_select = Info.first
+   # contact_select = Contact.first
+   # @info_del = info_select.destroy
+   # # @contact_del = contact_select.destroy
+   
+   
    erb :all_list
 end
 

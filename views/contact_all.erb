@@ -36,6 +36,7 @@
         <h1 class="mt-4 pb-4 border-bottom">お問い合わせ内容一覧</h1>
         
         
+        
         <p>動作確認用: <%= @contacts %></p>
             
           <div>
@@ -46,7 +47,7 @@
                       <th>名前</th>
                       <th>フリガナ</th>
                       <th>email</th>
-                      <!--<th>＠前</th>-->
+                      <th>お問い合わせ内容</th>
                       <!--<th>＠後</th>-->
                    </tr>
                 </thead>
@@ -57,7 +58,7 @@
                          <td><%= contact.ruby %></td>
                          <td><%= contact.name %></td>
                          <td><%= contact.email %></td>
-                         <!--<td><%= contact.confirm_email1 %></td>-->
+                         <td><%= contact.contact %></td>
                          <!--<td><%= contact.confirm_email2 %></td>-->
                       </tr>
                    <% end %>
