@@ -4,21 +4,23 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css" />
-        <title>集計結果</title>
+        <script type="text/jsx;harmony=true" src="test.js"></script>
+        
+        <title>PUB Chou Chou menu</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-sm navbar-light bg-light">
                 <a href="/" class="navbar-brand">Home</a>
-                
                 <!-- 横幅が狭い時に出るハンバーガーボタン -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            
+                
                 <!-- メニュー項目 -->
               <div class="collapse navbar-collapse" id="nav-bar">
                 <ul class="navbar-nav">
@@ -33,46 +35,23 @@
               </div>
             </nav>
         </header>
-        <!--<p>動作確認用: <%= params %></p>-->
-        <h1 class="mt-4 pb-4 border-bottom">集計結果</h1>
+        <div class="container">
+            
+            <!--<img src="img/IMG_3826.jpg" alt="chouchou3人組" align="middle">-->
+        </div>
+        <h1>Menu</h1>
+        <!--<div class="wrap-video">-->
+          
+        <!--  <div class="text">-->
+        <!--    <h1 class="mt-4 pb-4 border-bottom">PUB Chou Chou</h1>-->
+        <!--    <p>full screen video !</p>-->
+        <!--    <p class="headline">背景に動画を表示してみた</p>-->
+        <!--  </div>-->
+          
+        <!--  <video src="video/sample-video.mp4" loop autoplay muted></video>-->
         
-          <div>
-             <table border="1">
-                <thead>
-                   <tr>
-                      <th>ID</th>
-                      <th>名前</th>
-                      <th>フリガナ</th>
-                      <th>電話番号</th>
-                      <th>メールアドレス</th>
-                      <th>年齢</th>
-                      <th>性別</th>
-                      <th>血液型</th>
-                      <th>金額</th>
-                      <th>内容</th>
-                   </tr>
-                </thead>
-                <tbody>
-                   <% @infos.each do |contact| %>
-                      <tr>
-                         <td><%= contact.id %></td>
-                         <td><%= contact.name %></td>
-                         <td><%= contact.ruby %></td>
-                         <td><%= contact.phone_number %></td>
-                         <td><%= contact.email %></td>
-                         <td><%= contact.age %></td>
-                         <td><%= contact.gender %></td>
-                         <td><%= contact.blood %></td>
-                         <td><%= contact.payment %></td>
-                         <td><%= contact.contact %></td>
-                      </tr>
-                   <% end %>
-                </tbody>
-             </table>
-          </div>
+        <!--</div>-->
         
-        <a href="/payment" class="btn btn btn-success">入力画面に戻る</a>
-        <button type="button" class="btn btn btn-success" onclick="history.back()">戻る</button>
         <footer class="text-center pt-3 pb-3 border-top">
             &copy; 2019 SAMPLE Inc.
         </footer>
@@ -85,5 +64,3 @@
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
     </body>
 </html>
-
-              
